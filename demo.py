@@ -161,7 +161,7 @@ class quality_output_window(QMainWindow):
         self.nextButton.clicked.connect(self.nextScreen)
 
     def generateOutput(self):
-        self.qualityOutputLabel.setText(str(QA_Simple) + "\n" + str(QA_Medium) + "\n" + str(QA_High) + "\n" + str(QA_Complex))
+        self.qualityOutputLabel.setText("Simple: " + str(QA_Simple) + "\n" + "Medium: " + str(QA_Medium) + "\n" + "High: " + str(QA_High) + "\n" + "Complex" + str(QA_Complex))
 
     def nextScreen(self):
         next_window = management_window()
@@ -246,7 +246,7 @@ class management_output_window(QMainWindow):
         self.nextButton.clicked.connect(self.nextScreen)
 
     def generateOutput(self):
-        self.managementOutputLabel.setText(str(M_Simple) + "\n" + str(M_Medium) + "\n" + str(M_High) + "\n" + str(M_Complex))
+        self.managementOutputLabel.setText("Simple: " + str(M_Simple) + "\n" + "Medium: " + str(M_Medium) + "\n" + "High: " + str(M_High) + "\n" + "Complex: " + str(M_Complex))
 
     def nextScreen(self):
         next_window = risk_window()
