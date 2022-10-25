@@ -1,6 +1,7 @@
 # MODULE STUFF
 from qualityModule import *
 from managementModule import *
+from riskModule import *
 
 # UI STUFF
 import sys
@@ -120,7 +121,6 @@ class quality_scaling_window(QMainWindow):
         self.nextButton.clicked.connect(self.nextScreen)
 
     def nextScreen(self):
-        # global qualityScalingFactorsArray
         qualityScalingFactorsArray = []
         qualityBasic = 1.0
         qualityStandard = self.qualityStandard.text()
@@ -255,13 +255,86 @@ class management_output_window(QMainWindow):
 
 
 
-# RISK ASSESSEMENT
+# RISK SCREEN
 class risk_window(QMainWindow):
     def __init__(self):
         super(risk_window, self).__init__()
         uic.loadUi('ui_files/risk_screen.ui', self)
 
+        self.nextButton.clicked.connect(self.nextScreen)
+
+    def nextScreen(self):
+        J = self.paramJ.text()
+        K = self.paramK.text()
+        L = self.paramL.text()
+
+        R_parameterArray.append(float(J))
+        R_parameterArray.append(float(K))
+        R_parameterArray.append(float(L))
+
+        print(R_parameterArray)
+
+        next_window = risk_scaling_window()
+        widget.addWidget(next_window)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+
+
+# RISK SCALING SCREEN
+class risk_scaling_window(QMainWindow):
+    def __init__(self):
+        super(risk_scaling_window, self).__init__()
+        uic.loadUi('ui_files/risk_scaling_screen.ui', self)
+
+        self.nextButton.clicked.connect(self.nextScreen)
+
+    def nextScreen(self):
+        riskScalingFactorsArray = []
+        riskLow = 1.0
+        riskMedium = self.riskMedium.text()
+        riskHigh = self.riskHigh.text()
+        riskComplex = self.riskComplex.text()
+
+        riskLow, riskMedium, riskHigh, riskComplex = map(float, [riskLow, riskMedium, riskHigh, riskComplex])
+
+        riskScalingFactorsArray.append(riskLow)
+        riskScalingFactorsArray.append(riskMedium)
+        riskScalingFactorsArray.append(riskHigh)
+        riskScalingFactorsArray.append(riskComplex)
+
+        print(riskScalingFactorsArray)
+
+        riskFactorsInput(riskScalingFactorsArray)
+        
+        # Risk Factors Mapping
+        global R_Low, R_Medium, R_High, R_Undefined
+        R_Low = {"Simple": R(riskLow)}
+        R_Medium = {"Simple": R(riskLow), "Medium": R(riskLow), "High": R(riskMedium)}
+        R_High = {"Simple": R(riskMedium), "Medium": R(riskMedium), "High": R(riskHigh), "NA": R(riskComplex)}
+        R_Undefined = {"NA": R(riskComplex)}
+
+        next_window = risk_output_window()
+        widget.addWidget(next_window)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+
+
+# RISK OUTPUT
+class risk_output_window(QMainWindow):
+    def __init__(self):
+        super(risk_output_window, self).__init__()
+        uic.loadUi('ui_files/risk_output_screen.ui', self)
+
+        self.pushButton.clicked.connect(self.generateOutput)
         # self.nextButton.clicked.connect(self.nextScreen)
+
+    def generateOutput(self):
+        self.riskOutputLabel.setText("Low: " + str(R_Low) + "\n" + "Medium: " + str(R_Medium) + "\n" + "High: " + str(R_High) + "\n" + "Undefined: " + str(R_Undefined))
+
+    def nextScreen(self):
+        # next_window = ???
+        # widget.addWidget(next_window)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
 
 
 
