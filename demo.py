@@ -9,6 +9,9 @@ from PyQt5.QtWidgets import *
 from PyQt5 import uic
 from PyQt5 import QtWidgets, QtCore
 
+# for dependent comboboxes
+from PyQt5.QtGui import QStandardItemModel, QStandardItem
+
 QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling, True) #enable highdpi scaling
 QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_UseHighDpiPixmaps, True) #use highdpi icons
 
@@ -145,7 +148,12 @@ class quality_scaling_window(QMainWindow):
         QA_High = {"Entry": QA(qualityHigh, h1), "Intermediate": QA(qualityHigh, h2), "High": QA(qualityStandard, h3), "Expert": QA(qualityBasic, h4)}
         QA_Complex = {"Entry": QA(qualityPremium, c1), "Intermediate": QA(qualityPremium, c2), "High": QA(qualityHigh, c3), "Expert": QA(qualityStandard, c4)}
 
-        next_window = quality_output_window()
+        # Quality Output Dictionary
+        global Quality_Dict
+        Quality_Dict = {'Simple': QA_Simple, 'Medium': QA_Medium, 'High': QA_High, 'Complex': QA_Complex}
+
+        # next_window = quality_output_window()
+        next_window = management_window()
         widget.addWidget(next_window)
         widget.setCurrentIndex(widget.currentIndex() + 1)               
 
@@ -230,7 +238,12 @@ class management_scaling_window(QMainWindow):
         M_High = {"Entry": M(managementHigh, h1), "Intermediate": M(managementHigh, h2), "High": M(managementMedium, h3), "Expert": M(managementLow, h4)}
         M_Complex = {"High": M(managementHigh, c3), "Expert": M(managementHigh, c4)}
 
-        next_window = management_output_window()
+        # Management Output Dictionary
+        global Management_Dict
+        Management_Dict = {'Simple': M_Simple, 'Medium': M_Medium, 'High': M_High, 'Complex': M_Complex}
+
+        # next_window = management_output_window()
+        next_window = risk_window()
         widget.addWidget(next_window)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
@@ -313,7 +326,12 @@ class risk_scaling_window(QMainWindow):
         R_High = {"Simple": R(riskMedium), "Medium": R(riskMedium), "High": R(riskHigh), "NA": R(riskComplex)}
         R_Undefined = {"NA": R(riskComplex)}
 
-        next_window = risk_output_window()
+        # Risk Output Dictionary
+        global Risk_Dict
+        Risk_Dict = {'Low': R_Low, 'Medium': R_Medium, 'High': R_High, 'Undefined': R_Undefined}
+
+        # next_window = risk_output_window()
+        next_window = output_drop_down_window()
         widget.addWidget(next_window)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
@@ -326,25 +344,121 @@ class risk_output_window(QMainWindow):
         uic.loadUi('ui_files/risk_output_screen.ui', self)
 
         self.pushButton.clicked.connect(self.generateOutput)
-        # self.nextButton.clicked.connect(self.nextScreen)
+        self.nextButton.clicked.connect(self.nextScreen)
 
     def generateOutput(self):
         self.riskOutputLabel.setText("Low: " + str(R_Low) + "\n" + "Medium: " + str(R_Medium) + "\n" + "High: " + str(R_High) + "\n" + "Undefined: " + str(R_Undefined))
 
     def nextScreen(self):
-        # next_window = ???
-        # widget.addWidget(next_window)
+        next_window = output_drop_down_window()
+        widget.addWidget(next_window)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
+# OUTPUT SCREEN
+class output_drop_down_window(QMainWindow):
+    def __init__(self):
+        super(output_drop_down_window, self).__init__()
+        uic.loadUi('ui_files/output_drop_down_screen.ui', self)
+        self.setGeometry(200, 100, 810, 450)
+        self.show()
 
+        self.model = QStandardItemModel(self)
+
+        self.factors.setModel(self.model)
+        self.parameters1.setModel(self.model)
+        self.parameters2.setModel(self.model)
+
+        for factor_key in dictionary.keys():
+            FACTOR = QStandardItem(factor_key)
+            self.model.appendRow(FACTOR)
+            factor_key_dict = dictionary.get(factor_key)
+
+            for param1_key in factor_key_dict.keys():
+                PARAM1 = QStandardItem(param1_key)
+                FACTOR.appendRow(PARAM1)
+                
+                param1_array = factor_key_dict.get(param1_key)
+                
+                for value in param1_array:
+                    PARAM2 = QStandardItem(value)
+                    PARAM1.appendRow(PARAM2)
+
+        self.factors.currentIndexChanged.connect(self.updateParam1Combo)
+        self.updateParam1Combo(0)
+        self.factors.activated.connect(self.labelUpdate)
+
+        # initial default values for labels
+        self.paramLabel1.setText('Job Type')
+        self.paramLabel2.setText('Ability')
+
+        self.generateButton.clicked.connect(self.generateOutput)
+
+    def labelUpdate(self):
+        if self.factors.currentText() == "Quality" or self.factors.currentText() == "Management":
+            self.paramLabel1.setText('Job Type')
+            self.paramLabel2.setText('Ability')
+        elif self.factors.currentText() == "Risk":
+            self.paramLabel1.setText('Risk Impact')
+            self.paramLabel2.setText('Mitigation Options')
+
+    def updateParam1Combo(self, index):
+        model_index = self.model.index(index, 0, self.factors.rootModelIndex())
+        self.parameters1.setRootModelIndex(model_index)
+        self.parameters1.setCurrentIndex(0)
+        self.parameters1.currentIndexChanged.connect(self.updateParam2Combo)
+        self.updateParam2Combo(0)
+
+    def updateParam2Combo(self, index):
+        model_index = self.model.index(index, 0, self.parameters1.rootModelIndex())
+        self.parameters2.setRootModelIndex(model_index)
+        self.parameters2.setCurrentIndex(0)
+
+    def generateOutput(self):
+        # output_text = self.factors.currentText() + " " + self.parameters1.currentText() + " " + self.parameters2.currentText()
+        # self.outputDataLabel.setText(output_text)
+        
+        # OUTPUT DICTIONARY
+        output_dictionary = {'Quality': Quality_Dict, 'Management': Management_Dict, 'Risk': Risk_Dict}
+        output_text = output_dictionary[self.factors.currentText()][self.parameters1.currentText()][self.parameters2.currentText()]
+        self.outputDataLabel.setText(str(output_text)) 
+
+    
+
+# FACTORS & PARAMETERS DICTIONARY
+dictionary = {
+    'Quality':
+        {'Simple': ['Entry', 'Intermediate', 'High', 'Expert'],
+        'Medium': ['Entry', 'Intermediate', 'High', 'Expert'],
+        'High': ['Entry', 'Intermediate', 'High', 'Expert'],
+        'Complex': ['Entry', 'Intermediate', 'High', 'Expert']
+    },
+
+    'Management':{
+        'Simple': ['Entry', 'Intermediate'],
+        'Medium': ['Entry', 'Intermediate', 'High', 'Expert'],
+        'High': ['Entry', 'Intermediate', 'High', 'Expert'],
+        'Complex': ['High', 'Expert']
+    },
+
+    'Risk':{
+        'Low': ['Simple'],
+        'Medium': ['Simple', 'Medium', 'High'],
+        'High': ['Simple', 'Medium', 'High', 'NA'],
+        'Undefined': ['Complex']
+    }
+}
 
 demoApp = QApplication([])
 
 widget = QtWidgets.QStackedWidget()
 first_window = ability_jobType_scaling_window()
+
+# CHECK
+# first_window = output_drop_down_window()
+
 widget.addWidget(first_window)
-widget.setFixedHeight(700)
-widget.setFixedWidth(750)
-widget.show()
+# widget.setFixedHeight(700)
+# widget.setFixedWidth(750)
+widget.showMaximized()
 
 demoApp.exec_()
