@@ -444,7 +444,7 @@ dictionary = {
         'Low': ['Simple'],
         'Medium': ['Simple', 'Medium', 'High'],
         'High': ['Simple', 'Medium', 'High', 'NA'],
-        'Undefined': ['Complex']
+        'Undefined': ['NA']
     }
 }
 

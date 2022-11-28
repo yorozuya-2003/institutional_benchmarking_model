@@ -147,7 +147,7 @@
      </font>
     </property>
    </widget>
-   <widget class="QLineEdit" name="paramG">
+   <widget class="QLineEdit" name="paramL">
     <property name="geometry">
      <rect>
       <x>490</x>
@@ -189,7 +189,7 @@
      <x>0</x>
      <y>0</y>
      <width>727</width>
-     <height>18</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
