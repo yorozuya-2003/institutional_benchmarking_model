@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">font: 63 7pt &quot;Segoe UI Variable Text Semibold&quot;;</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label_10">
@@ -78,7 +78,7 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>110</y>
+      <y>160</y>
       <width>151</width>
       <height>31</height>
      </rect>
@@ -106,38 +106,41 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>110</y>
+      <y>160</y>
       <width>131</width>
       <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Bookman Old Style</family>
-      <pointsize>10</pointsize>
-      <weight>7</weight>
-      <italic>true</italic>
-      <bold>false</bold>
+      <family>Segoe UI Variable Text Semibold</family>
+      <pointsize>7</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 63 italic 10pt &quot;Bookman Old Style&quot;;</string>
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="nextButton">
     <property name="geometry">
      <rect>
       <x>160</x>
-      <y>440</y>
+      <y>540</y>
       <width>151</width>
       <height>61</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Segoe UI Variable Text Semibold</family>
-      <pointsize>7</pointsize>
-      <weight>7</weight>
+      <family>Corbel Light</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
       <italic>false</italic>
       <bold>false</bold>
      </font>
@@ -146,36 +149,11 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
      <string>NEXT</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>330</x>
-      <y>110</y>
-      <width>171</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Arial</family>
-      <pointsize>10</pointsize>
-      <weight>10</weight>
-      <italic>false</italic>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 87 10pt &quot;Arial&quot;;</string>
-    </property>
-    <property name="text">
-     <string>*  Entry</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>150</y>
+      <y>200</y>
       <width>151</width>
       <height>31</height>
      </rect>
@@ -199,36 +177,11 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
-    <property name="geometry">
-     <rect>
-      <x>330</x>
-      <y>150</y>
-      <width>171</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Arial</family>
-      <pointsize>10</pointsize>
-      <weight>10</weight>
-      <italic>false</italic>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 87 10pt &quot;Arial&quot;;</string>
-    </property>
-    <property name="text">
-     <string>*  Entry</string>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="abilityHigh">
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>150</y>
+      <y>200</y>
       <width>131</width>
       <height>31</height>
      </rect>
@@ -237,17 +190,20 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
      <font>
       <family>Segoe UI Variable Text Semibold</family>
       <pointsize>7</pointsize>
-      <weight>7</weight>
+      <weight>50</weight>
       <italic>false</italic>
       <bold>false</bold>
      </font>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>190</y>
+      <y>240</y>
       <width>141</width>
       <height>31</height>
      </rect>
@@ -271,36 +227,11 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_9">
-    <property name="geometry">
-     <rect>
-      <x>330</x>
-      <y>190</y>
-      <width>171</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Arial</family>
-      <pointsize>10</pointsize>
-      <weight>10</weight>
-      <italic>false</italic>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 87 10pt &quot;Arial&quot;;</string>
-    </property>
-    <property name="text">
-     <string>*  Entry</string>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="abilityExpert">
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>190</y>
+      <y>240</y>
       <width>131</width>
       <height>31</height>
      </rect>
@@ -309,17 +240,20 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
      <font>
       <family>Segoe UI Variable Text Semibold</family>
       <pointsize>7</pointsize>
-      <weight>7</weight>
+      <weight>50</weight>
       <italic>false</italic>
       <bold>false</bold>
      </font>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>290</y>
+      <y>390</y>
       <width>151</width>
       <height>31</height>
      </rect>
@@ -347,7 +281,7 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>370</y>
+      <y>470</y>
       <width>141</width>
       <height>31</height>
      </rect>
@@ -371,36 +305,11 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_11">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>330</y>
-      <width>171</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Arial</family>
-      <pointsize>10</pointsize>
-      <weight>10</weight>
-      <italic>false</italic>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 87 10pt &quot;Arial&quot;;</string>
-    </property>
-    <property name="text">
-     <string>*  Simple</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_12">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>330</y>
+      <y>430</y>
       <width>151</width>
       <height>31</height>
      </rect>
@@ -428,7 +337,7 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>330</y>
+      <y>430</y>
       <width>131</width>
       <height>31</height>
      </rect>
@@ -437,42 +346,17 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
      <font>
       <family>Segoe UI Variable Text Semibold</family>
       <pointsize>7</pointsize>
-      <weight>7</weight>
+      <weight>50</weight>
       <italic>false</italic>
       <bold>false</bold>
      </font>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_13">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>290</y>
-      <width>171</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Arial</family>
-      <pointsize>10</pointsize>
-      <weight>10</weight>
-      <italic>false</italic>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 87 10pt &quot;Arial&quot;;</string>
-    </property>
-    <property name="text">
-     <string>*  Simple</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_14">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>230</y>
+      <y>290</y>
       <width>601</width>
       <height>51</height>
      </rect>
@@ -496,12 +380,75 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_15">
+   <widget class="QLineEdit" name="jobMedium">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>370</y>
-      <width>171</width>
+      <x>170</x>
+      <y>390</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI Variable Text Semibold</family>
+      <pointsize>7</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="jobComplex">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>470</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI Variable Text Semibold</family>
+      <pointsize>7</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="abilityEntry">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>120</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI Variable Text Semibold</family>
+      <pointsize>7</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>120</y>
+      <width>151</width>
       <height>31</height>
      </rect>
     </property>
@@ -518,14 +465,17 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
      <string notr="true">font: 87 10pt &quot;Arial&quot;;</string>
     </property>
     <property name="text">
-     <string>*  Simple</string>
+     <string>Entry =</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QLineEdit" name="jobMedium">
+   <widget class="QLineEdit" name="jobSimple">
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>290</y>
+      <y>350</y>
       <width>131</width>
       <height>31</height>
      </rect>
@@ -534,29 +484,41 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
      <font>
       <family>Segoe UI Variable Text Semibold</family>
       <pointsize>7</pointsize>
-      <weight>7</weight>
+      <weight>50</weight>
       <italic>false</italic>
       <bold>false</bold>
      </font>
     </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
-   <widget class="QLineEdit" name="jobComplex">
+   <widget class="QLabel" name="label_9">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>370</y>
-      <width>131</width>
+      <x>10</x>
+      <y>350</y>
+      <width>151</width>
       <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Segoe UI Variable Text Semibold</family>
-      <pointsize>7</pointsize>
-      <weight>7</weight>
+      <family>Arial</family>
+      <pointsize>10</pointsize>
+      <weight>10</weight>
       <italic>false</italic>
       <bold>false</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 87 10pt &quot;Arial&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Simple =</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
   </widget>
@@ -566,7 +528,7 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
      <x>0</x>
      <y>0</y>
      <width>727</width>
-     <height>16</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

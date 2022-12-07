@@ -112,11 +112,12 @@
     </property>
     <property name="font">
      <font>
+      <family>Corbel Light</family>
       <pointsize>14</pointsize>
      </font>
     </property>
     <property name="text">
-     <string>Generate Output</string>
+     <string>GENERATE OUTPUT</string>
     </property>
    </widget>
    <widget class="QLabel" name="paramLabel1">
@@ -180,6 +181,25 @@
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="backButton">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>310</y>
+      <width>151</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Corbel Light</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>BACK</string>
     </property>
    </widget>
   </widget>

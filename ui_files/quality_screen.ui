@@ -201,10 +201,10 @@
    <widget class="QPushButton" name="nextButton">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>330</y>
+      <x>360</x>
+      <y>350</y>
       <width>141</width>
-      <height>51</height>
+      <height>61</height>
      </rect>
     </property>
     <property name="font">
@@ -217,6 +217,25 @@
      <string>NEXT</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="backButton">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>350</y>
+      <width>151</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Corbel Light</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>BACK</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -224,7 +243,7 @@
      <x>0</x>
      <y>0</y>
      <width>727</width>
-     <height>18</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

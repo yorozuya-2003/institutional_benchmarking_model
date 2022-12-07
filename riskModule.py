@@ -1,8 +1,7 @@
-R_parameterArray = []
 # assuming that the user inputs only 3 factors
 R_parameterScalingArray = [0.33, 0.33, 0.34]
 
-def R(risk):
+def R(risk, R_parameterArray):
     parameter_X_weight = 1
     for i in range(len(R_parameterArray)):
         parameter_X_weight *= R_parameterArray[i] * R_parameterScalingArray[i]
