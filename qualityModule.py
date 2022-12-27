@@ -1,27 +1,26 @@
-QA_parameterArray = []
 # assuming that the user inputs only 4 factors
-QA_parameterScalingArray = [0.25, 0.25, 0.25, 0.25]
+Q_parameterScalingArray = [0.25, 0.25, 0.25, 0.25]
 
-def QA(quality, persons):
+def Q(quality, persons, Q_parameterArray):
     parameter_X_weight = 0
-    for i in range(len(QA_parameterScalingArray)):
-        parameter_X_weight += QA_parameterArray[i] * QA_parameterScalingArray[i]
+    for i in range(len(Q_parameterArray)):
+        parameter_X_weight += Q_parameterArray[i] * Q_parameterScalingArray[i]
     return parameter_X_weight * quality * persons
 
-QA_basic = 1
-QAfunc = lambda value: float(value) * QA_basic
+Q_basic = 1
+Qfunc = lambda value: float(value) * Q_basic
 def qualityFactorsInput(qualityScalingFactorsArray):
     global qualityBasic, qualityStandard, qualityHigh, qualityPremium
-    qualityBasic, qualityStandard, qualityHigh, qualityPremium = map(QAfunc, qualityScalingFactorsArray)
+    qualityBasic, qualityStandard, qualityHigh, qualityPremium = map(Qfunc, qualityScalingFactorsArray)
 
-QA_Simple = {}
-QA_Medium = {}
-QA_High = {}
-QA_Complex = {}
+Q_Simple = {}
+Q_Medium = {}
+Q_High = {}
+Q_Complex = {}
 
 # def qualityMapping():
-#     global QA_Simple, QA_Medium, QA_High, QA_Complex
-#     QA_Simple = {"Entry": QA(qualityBasic), "Intermediate": QA(0.75*qualityBasic), "High": QA(0.5*qualityBasic), "Expert": QA(0.25*qualityBasic)}
-#     QA_Medium = {"Entry": QA(qualityStandard), "Intermediate": QA(qualityStandard), "High": QA(qualityBasic), "Expert": QA(0.5*qualityBasic)}
-#     QA_High = {"Entry": QA(qualityHigh), "Intermediate": QA(qualityHigh), "High": QA(qualityStandard), "Expert": QA(qualityBasic)}
-#     QA_Complex = {"Entry": QA(qualityPremium), "Intermediate": QA(qualityPremium), "High": QA(qualityHigh), "Expert": QA(qualityStandard)}
+#     global Q_Simple, Q_Medium, Q_High, Q_Complex
+#     Q_Simple = {"Entry": Q(qualityBasic), "Intermediate": Q(0.75*qualityBasic), "High": Q(0.5*qualityBasic), "Expert": Q(0.25*qualityBasic)}
+#     Q_Medium = {"Entry": Q(qualityStandard), "Intermediate": Q(qualityStandard), "High": Q(qualityBasic), "Expert": Q(0.5*qualityBasic)}
+#     Q_High = {"Entry": Q(qualityHigh), "Intermediate": Q(qualityHigh), "High": Q(qualityStandard), "Expert": Q(qualityBasic)}
+#     Q_Complex = {"Entry": Q(qualityPremium), "Intermediate": Q(qualityPremium), "High": Q(qualityHigh), "Expert": Q(qualityStandard)}

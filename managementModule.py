@@ -1,8 +1,7 @@
-M_parameterArray = []
 # assuming that the user inputs only 5 factors
 M_parameterScalingArray = [0.15, 0.15, 0.3, 0.25, 0.15]
 
-def M(management, persons):
+def M(management, persons, M_parameterArray):
     parameter_X_weight = 0
     for i in range(len(M_parameterArray)):
         parameter_X_weight += M_parameterArray[i] * M_parameterScalingArray[i]

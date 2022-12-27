@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>938</width>
-    <height>462</height>
+    <width>937</width>
+    <height>519</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,18 +22,40 @@
      <rect>
       <x>0</x>
       <y>40</y>
-      <width>951</width>
+      <width>941</width>
       <height>41</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Times New Roman</family>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>RISK SCALING</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>110</y>
+      <width>941</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
       <pointsize>18</pointsize>
      </font>
     </property>
     <property name="text">
-     <string>QUALITY ASSESSMENT</string>
+     <string>Enter the scaling for the Risk parameters:- </string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -42,10 +64,10 @@
    <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>210</y>
-      <width>631</width>
-      <height>131</height>
+      <x>270</x>
+      <y>190</y>
+      <width>391</width>
+      <height>141</height>
      </rect>
     </property>
     <property name="font">
@@ -76,7 +98,7 @@
       <number>12</number>
      </property>
      <item row="0" column="0">
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="label_3">
        <property name="font">
         <font>
          <family>Arial</family>
@@ -86,12 +108,15 @@
         </font>
        </property>
        <property name="text">
-        <string>Completeness of function/task delivered against goal</string>
+        <string>Low =</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLineEdit" name="paramA">
+      <widget class="QLineEdit" name="riskLow">
        <property name="font">
         <font>
          <family>Arial</family>
@@ -106,7 +131,7 @@
       </widget>
      </item>
      <item row="1" column="0">
-      <widget class="QLabel" name="label_3">
+      <widget class="QLabel" name="label_2">
        <property name="font">
         <font>
          <family>Arial</family>
@@ -116,12 +141,15 @@
         </font>
        </property>
        <property name="text">
-        <string>Reliability level</string>
+        <string>Medium =</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QLineEdit" name="paramB">
+      <widget class="QLineEdit" name="riskMedium">
        <property name="font">
         <font>
          <family>Arial</family>
@@ -146,27 +174,15 @@
         </font>
        </property>
        <property name="text">
-        <string>TCOQ</string>
+        <string>High =</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QLineEdit" name="paramC">
-       <property name="font">
-        <font>
-         <family>Arial</family>
-         <pointsize>12</pointsize>
-         <weight>50</weight>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color:rgb(255, 255, 255)</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="QLineEdit" name="paramD">
+      <widget class="QLineEdit" name="riskHigh">
        <property name="font">
         <font>
          <family>Arial</family>
@@ -181,7 +197,7 @@
       </widget>
      </item>
      <item row="3" column="0">
-      <widget class="QLabel" name="label_5">
+      <widget class="QLabel" name="label_6">
        <property name="font">
         <font>
          <family>Arial</family>
@@ -191,51 +207,25 @@
         </font>
        </property>
        <property name="text">
-        <string>Level of standardization &amp; reusability</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>110</y>
-      <width>951</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <layout class="QGridLayout" name="gridLayout_2">
-     <item row="0" column="0" rowspan="3" colspan="2">
-      <widget class="QLabel" name="label">
-       <property name="font">
-        <font>
-         <family>Arial</family>
-         <pointsize>16</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Enter the values for the following parameters:- </string>
+        <string>Complex =</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignCenter</set>
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
      </item>
-     <item row="3" column="0" colspan="2">
-      <widget class="QLabel" name="label_6">
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="riskComplex">
        <property name="font">
         <font>
          <family>Arial</family>
          <pointsize>12</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
         </font>
        </property>
-       <property name="text">
-        <string>(Enter percentage values in decimal form)</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
+       <property name="styleSheet">
+        <string notr="true">background-color:rgb(255, 255, 255)</string>
        </property>
       </widget>
      </item>
@@ -244,9 +234,9 @@
    <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>250</x>
-      <y>390</y>
-      <width>461</width>
+      <x>290</x>
+      <y>380</y>
+      <width>371</width>
       <height>28</height>
      </rect>
     </property>
@@ -256,7 +246,7 @@
       <pointsize>14</pointsize>
      </font>
     </property>
-    <layout class="QGridLayout" name="gridLayout_3">
+    <layout class="QGridLayout" name="gridLayout_2">
      <property name="horizontalSpacing">
       <number>30</number>
      </property>
@@ -300,7 +290,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>938</width>
+     <width>937</width>
      <height>18</height>
     </rect>
    </property>
